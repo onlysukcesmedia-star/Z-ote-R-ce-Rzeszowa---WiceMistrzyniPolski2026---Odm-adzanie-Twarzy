@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Krok ku Zdrowiu - Mioplastyka Twarzy Rzeszów</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500;700&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --light-gold: #F4E0A1;
+            --glass-bg: rgba(255, 255, 255, 0.15);
+            --dark-accent: #1A1A1A;
+        }
+
+        body {
+            font-family: 'Maven Pro', sans-serif;
+            background-color: #fdfdfd;
+            color: #333;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Sora', sans-serif;
+        }
+
+        /* Confetti Animation Styles */
+        .confetti-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            overflow: hidden;
+        }
+
+        .confetti-piece {
+            position: absolute;
+            top: -20px;
+            opacity: 0;
+            animation: confetti-fall linear forwards;
+        }
+
+        @keyframes confetti-fall {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+        }
+
+        .gold-gradient-bg {
+            background: linear-gradient(135deg, #D4AF37 0%, #F4E0A1 100%);
+        }
+
+        .cta-button {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .cta-button:active {
+            transform: scale(0.98);
+        }
+
+        .messenger-avatar {
+            position: relative;
+            width: 120px; 
+            height: 120px; 
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+            border-radius: 50%;
+        }
+
+        .messenger-avatar img {
+            border-radius: 50%;
+            border: 3px solid var(--gold);
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .online-dot {
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            width: 20px;
+            height: 20px;
+            background-color: #31a24c;
+            border-radius: 50%;
+            border: 3px solid white;
+        }
+
+        /* Carousel Mobile Optimization */
+        .carousel-container {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 16px;
+            padding: 20px;
+            scrollbar-width: none;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .carousel-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .carousel-item {
+            min-width: 85%;
+            max-width: 85%;
+            scroll-snap-align: center;
+            flex-shrink: 0;
+        }
+
+        .scrolling-reviews {
+            display: flex;
+            width: max-content;
+            animation: scroll 40s linear infinite;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+            font-size: 16px; 
+        }
+
+        @keyframes bounce-in {
+            0% { transform: scale(0.9); opacity: 0; }
+            70% { transform: scale(1.05); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .animate-bounce-in {
+            animation: bounce-in 0.4s ease-out forwards;
+        }
+
+        .pulse-dot {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(49, 162, 76, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(49, 162, 76, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(49, 162, 76, 0); }
+        }
+    </style>
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1333842578587326');
+    fbq('track', 'PageView');
+    </script>
+</head>
+<body class="antialiased">
+
+    <!-- Confetti Overlay -->
+    <div id="confetti" class="confetti-container"></div>
+
+    <!-- ABOVE THE FOLD -->
+    <section class="relative min-h-screen flex flex-col items-center justify-center text-center px-6 pt-10 bg-slate-50">
+        <div class="absolute inset-0 z-0 opacity-10">
+             <div class="absolute top-20 right-10 w-64 h-64 bg-yellow-400 rounded-full blur-3xl"></div>
+             <div class="absolute bottom-20 left-10 w-64 h-64 bg-yellow-200 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="z-10 w-full max-w-md">
+            <h2 class="text-xs font-bold tracking-widest text-gray-500 uppercase mb-4">🏅Wicemistrzyni Polski 2026</h2>
+            <h1 class="text-3xl font-bold text-gray-900 leading-tight mb-6 uppercase">ZŁOTE RĘCE W RZESZOWIE</h1>
+            <p class="text-sm text-gray-600 mb-8 font-medium">#MistrzostwaPolskiMasazu</p>
+
+            <div class="flex flex-col items-center mb-10">
+                <div class="messenger-avatar mb-6">
+                    <img src="https://imgur.com/hnSzaai.png" alt="Ola Poprawska">
+                    <div class="online-dot"></div>
+                </div>
+                <p class="font-extrabold text-3xl text-gray-900 tracking-tight">Krok ku Zdrowiu</p>
+            </div>
+
+            <div class="glass-card p-6 rounded-3xl mb-8">
+                <h3 class="text-xl font-bold text-gray-900 mb-1 uppercase tracking-tight">NATURALNY LIFTING TWARZY</h3>
+                <h4 class="text-xl font-bold text-[#D4AF37] mb-4 uppercase tracking-tight">MIOPLASTYKA TWARZY®</h4>
+                
+                <div class="flex flex-row justify-center gap-2 text-[10px] sm:text-xs font-bold text-red-600 uppercase whitespace-nowrap overflow-hidden">
+                    <span>❌ BEZ BOTOKSU</span>
+                    <span>❌ BEZ INWAZYJNOŚCI</span>
+                    <span>❌ BEZ SKALPELA</span>
+                </div>
+            </div>
+
+            <p class="italic text-gray-600 px-4 mb-8 text-sm">
+                "Za każdą twarzą kryje się opowieść… Jaką opowieść skrywa Twoja?"
+            </p>
+
+            <a href="#kontakt" class="cta-button block w-full gold-gradient-bg text-white font-bold py-4 rounded-full text-lg uppercase">
+                Odbierz limitowaną promocję
+            </a>
+        </div>
+    </section>
+
+    <!-- SOCIAL PROOF MINI -->
+    <section class="py-12 bg-white text-center border-b border-gray-100">
+        <p class="text-gray-700 font-medium px-6 mb-6">
+            Pomogliśmy ponad <span class="text-gold font-bold text-xl text-[#D4AF37]">190+ Kobietom</span> z Rzeszowa i okolic odmłodzić swoją twarz w naturalny sposób 👇
+        </p>
+        <div class="flex flex-wrap justify-center gap-2 px-4">
+            <img src="https://imgur.com/0TfN0lO.png" class="w-10 h-10 rounded-full border-2 border-white shadow-md" alt="Profil klientki">
+            <img src="https://imgur.com/10oqnhg.png" class="w-10 h-10 rounded-full border-2 border-white shadow-md" alt="Profil klientki">
+            <img src="https://imgur.com/IVFPXRn.png" class="w-10 h-10 rounded-full border-2 border-white shadow-md" alt="Profil klientki">
+            <img src="https://imgur.com/mLd6pfC.png" class="w-10 h-10 rounded-full border-2 border-white shadow-md" alt="Profil klientki">
+            <img src="https://imgur.com/xCAqDdT.png" class="w-10 h-10 rounded-full border-2 border-white shadow-md" alt="Profil klientki">
+            <img src="https://imgur.com/yzlWihj.png" class="w-10 h-10 rounded-full border-2 border-white shadow-md" alt="Profil klientki">
+            <img src="https://imgur.com/l043q7p.png" class="w-10 h-10 rounded-full border-2 border-white shadow-md" alt="Profil klientki">
+            <img src="https://imgur.com/YDfNdQF.png" class="w-10 h-10 rounded-full border-2 border-white shadow-md" alt="Profil klientki">
+        </div>
+    </section>
+
+    <!-- O MNIE -->
+    <section class="bg-white">
+        <div class="w-full">
+            <img src="https://i.imgur.com/iGgbBUy.png" alt="Ola Poprawska - Specjalistka" class="w-full h-auto object-cover md:max-w-4xl md:mx-auto md:rounded-b-[4rem] shadow-xl">
+        </div>
+        <div class="py-16 px-6 max-w-2xl mx-auto text-center">
+            <h2 class="text-xs font-bold text-gold text-[#D4AF37] uppercase tracking-[0.3em] mb-4">Poznaj mnie</h2>
+            <h3 class="text-3xl font-bold mb-6 text-gray-900">Masaż jest moją pasją</h3>
+            <p class="text-lg text-gray-700 leading-relaxed text-left md:text-center">
+                Specjalizuję się w terapii manualnej i urządzeniowej. Moim celem jest, aby każdy klient wyszedł zaopiekowany, zrelaksowany, a jego układ nerwowy wyciszony, przy jednoczesnym uzyskaniu pięknych efektów wizualnych.
+                <br><br>
+                Działam w Rzeszowie, prowadząc firmę z moją mamą – <strong>Krok ku Zdrowiu</strong>. Uczestniczę w licznych szkoleniach, aby oferować najskuteczniejsze rozwiązania naturalnego odmładzania.
+            </p>
+        </div>
+    </section>
+
+    <!-- METAMORFOZY -->
+    <section class="py-16 bg-slate-50 overflow-hidden">
+        <div class="px-6 text-center mb-8">
+            <h2 class="text-2xl font-bold mb-2 uppercase tracking-tight text-gray-900">Efekty metamorfozy moich klientek 👇</h2>
+            <p class="text-gray-500 text-sm italic">Przesuń w lewo aby zobaczyć wszystkie efekty</p>
+        </div>
+
+        <div class="carousel-container">
+            <!-- Katarzyna -->
+            <div class="carousel-item glass-card p-4 rounded-3xl flex flex-col">
+                <div class="bg-white rounded-2xl mb-4 overflow-hidden shadow-sm flex items-center justify-center">
+                    <img src="https://imgur.com/lDxKBi1.png" alt="Metamorfoza Katarzyna 72 lata" class="w-full h-auto object-contain">
+                </div>
+                <p class="font-bold text-center text-gray-900">Katarzyna, 72 lata</p>
+                <p class="text-xs text-gray-600 text-center mt-1">Głęboka regeneracja tkanek i spektakularny lifting skóry.</p>
+            </div>
+
+            <!-- Monika -->
+            <div class="carousel-item glass-card p-4 rounded-3xl flex flex-col">
+                <div class="bg-white rounded-2xl mb-4 overflow-hidden shadow-sm flex items-center justify-center">
+                    <img src="https://imgur.com/W7ltbvB.png" alt="Metamorfoza Monika 55 lat" class="w-full h-auto object-contain">
+                </div>
+                <p class="font-bold text-center text-gray-900">Monika, 55 lat</p>
+                <p class="text-xs text-gray-600 text-center mt-1">Usunięcie kurzych łapek wokół oczu i zmarszczki nosowo-wargowej.</p>
+            </div>
+
+            <!-- Klaudia -->
+            <div class="carousel-item glass-card p-4 rounded-3xl flex flex-col">
+                <div class="bg-white rounded-2xl mb-4 overflow-hidden shadow-sm flex items-center justify-center">
+                    <img src="https://imgur.com/nhyuTD4.png" alt="Metamorfoza Klaudia 48 lat" class="w-full h-auto object-contain">
+                </div>
+                <p class="font-bold text-center text-gray-900">Klaudia, 48 lat</p>
+                <p class="text-xs text-gray-600 text-center mt-1">Ekspresowa metamorfoza pełen lifting twarzy.</p>
+            </div>
+
+            <!-- Sara -->
+            <div class="carousel-item glass-card p-4 rounded-3xl flex flex-col">
+                <div class="bg-white rounded-2xl mb-4 overflow-hidden shadow-sm flex items-center justify-center">
+                    <img src="https://imgur.com/9OcSFub.png" alt="Metamorfoza Sara 38 lat" class="w-full h-auto object-contain">
+                </div>
+                <p class="font-bold text-center text-gray-900">Sara, 38 lat</p>
+                <p class="text-xs text-gray-600 text-center mt-1">Modelowanie linii żuchwy i profilaktyka przeciwstarzeniowa.</p>
+            </div>
+
+            <!-- Eliza -->
+            <div class="carousel-item glass-card p-4 rounded-3xl flex flex-col">
+                <div class="bg-white rounded-2xl mb-4 overflow-hidden shadow-sm flex items-center justify-center">
+                    <img src="https://imgur.com/PuGjI1F.png" alt="Metamorfoza Eliza 45 lat" class="w-full h-auto object-contain">
+                </div>
+                <p class="font-bold text-center text-gray-900">Eliza, 45 lat</p>
+                <p class="text-xs text-gray-600 text-center mt-1">Wyraźny efekt naciągnięcia tkanek i odmłodzenie spojrzenia.</p>
+            </div>
+
+            <!-- Maria -->
+            <div class="carousel-item glass-card p-4 rounded-3xl flex flex-col">
+                <div class="bg-white rounded-2xl mb-4 overflow-hidden shadow-sm flex items-center justify-center">
+                    <img src="https://imgur.com/TnHZpm7.png" alt="Metamorfoza Maria 62 lata" class="w-full h-auto object-contain">
+                </div>
+                <p class="font-bold text-center text-gray-900">Maria, 62 lata</p>
+                <p class="text-xs text-gray-600 text-center mt-1">Odbudowa gęstości skóry i owalu.</p>
+            </div>
+
+            <!-- Iwona -->
+            <div class="carousel-item glass-card p-4 rounded-3xl flex flex-col">
+                <div class="bg-white rounded-2xl mb-4 overflow-hidden shadow-sm flex items-center justify-center">
+                    <img src="https://imgur.com/b2lonmx.png" alt="Metamorfoza Iwona 67 lat" class="w-full h-auto object-contain">
+                </div>
+                <p class="font-bold text-center text-gray-900">Iwona, 67 lat</p>
+                <p class="text-xs text-gray-600 text-center mt-1">Spektakularne wygładzenie głębokich bruzd.</p>
+            </div>
+
+            <!-- Ewa -->
+            <div class="carousel-item glass-card p-4 rounded-3xl flex flex-col">
+                <div class="bg-white rounded-2xl mb-4 overflow-hidden shadow-sm flex items-center justify-center">
+                    <img src="https://imgur.com/qxTk53O.png" alt="Metamorfoza Ewa 58 lat" class="w-full h-auto object-contain">
+                </div>
+                <p class="font-bold text-center text-gray-900">Ewa, 58 lat</p>
+                <p class="text-xs text-gray-600 text-center mt-1">Redukcja "chomików" i bruzd na czole szyi i dekolcie.</p>
+            </div>
+
+            <!-- Alicja -->
+            <div class="carousel-item glass-card p-4 rounded-3xl flex flex-col">
+                <div class="bg-white rounded-2xl mb-4 overflow-hidden shadow-sm flex items-center justify-center">
+                    <img src="https://imgur.com/2yaYl7R.png" alt="Metamorfoza Alicja 43 lata" class="w-full h-auto object-contain">
+                </div>
+                <p class="font-bold text-center text-gray-900">Alicja, 43 lata</p>
+                <p class="text-xs text-gray-600 text-center mt-1">Znaczne spłycenie bruzd nosowo-wargowych i lwiej zmarszczki w 100%.</p>
+            </div>
+
+            <!-- Grażyna -->
+            <div class="carousel-item glass-card p-4 rounded-3xl flex flex-col">
+                <div class="bg-white rounded-2xl mb-4 overflow-hidden shadow-sm flex items-center justify-center">
+                    <img src="https://imgur.com/6KpSLLc.png" alt="Metamorfoza Grażyna 75 lat" class="w-full h-auto object-contain">
+                </div>
+                <p class="font-bold text-center text-gray-900">Grażyna, 75 lat</p>
+                <p class="text-xs text-gray-600 text-center mt-1">Imponujący efekt liftingu głębokich bruzd i ujędrnienia szyi.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- OPINIE SCROLL -->
+    <section class="py-12 bg-white overflow-hidden border-y border-gray-100">
+        <div class="px-6 mb-8 text-center">
+            <h2 class="text-xl font-bold mb-4 uppercase text-gray-900">Zobacz co piszą moje klientki:</h2>
+        </div>
+        <div class="scrolling-reviews-container">
+            <div class="scrolling-reviews space-x-4 px-4">
+                <div class="w-64 glass-card p-4 rounded-2xl">
+                    <div class="text-yellow-400 mb-2">★★★★★</div>
+                    <p class="text-xs text-gray-700 italic">"Mioplastyka to magia! Moja twarz nigdy nie wyglądała tak dobrze."</p>
+                    <p class="mt-2 font-bold text-xs">Anna, Rzeszów Nowe Miasto</p>
+                </div>
+                <div class="w-64 glass-card p-4 rounded-2xl">
+                    <div class="text-yellow-400 mb-2">★★★★★</div>
+                    <p class="text-xs text-gray-700 italic">"Zmarszczki na czole zniknęły po 3 zabiegach. Polecam!"</p>
+                    <p class="mt-2 font-bold text-xs">Marta, Baronówka</p>
+                </div>
+                <div class="w-64 glass-card p-4 rounded-2xl">
+                    <div class="text-yellow-400 mb-2">★★★★★</div>
+                    <p class="text-xs text-gray-700 italic">"Rewelacyjny owal twarzy i brak chomiczków."</p>
+                    <p class="mt-2 font-bold text-xs">Katarzyna, Drabinianka</p>
+                </div>
+                <div class="w-64 glass-card p-4 rounded-2xl">
+                    <div class="text-yellow-400 mb-2">★★★★★</div>
+                    <p class="text-xs text-gray-700 italic">"Najlepsza specjalistka w Rzeszowie!"</p>
+                    <p class="mt-2 font-bold text-xs">Ewa, Pobitno</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OPIS ZABIEGU -->
+    <section class="py-16 px-6 bg-slate-900 text-white">
+        <div class="max-w-md mx-auto">
+            <h2 class="text-2xl font-bold mb-6 text-gold text-[#D4AF37] uppercase">Co to jest Masaż Mioplastyczny Twarzy?</h2>
+            <p class="text-sm text-gray-300 leading-relaxed mb-6">
+                To najskuteczniejsza z technik manualnych terapii twarzy, która koncentruje się na głębokiej pracy z tkankami, mięśniami i powięzią. Często nazywany jest „naturalną alternatywą dla botoksu i inwazyjnych zabiegów medycyny estetycznej” dodatkowo jest skuteczniejszy od popularnego masażu Kobido aż o 80%.
+            </p>
+            
+            <div class="border-l-2 border-gold pl-4 py-2 mb-8 border-[#D4AF37]">
+                <p class="text-sm font-medium italic">
+                    "Twórcą masażu mioplastycznego jest dr Sergey Shchurevich, rosyjski chirurg plastyk, który zrezygnował z operacji na rzecz naturalnych metod odmładzania."
+                </p>
+            </div>
+
+            <ul class="space-y-4 mb-10">
+                <li class="flex items-start gap-3"><span class="text-gold text-[#D4AF37]">✨</span> <p>Wyraźny lifting żuchwy</p></li>
+                <li class="flex items-start gap-3"><span class="text-gold text-[#D4AF37]">✨</span> <p>Usunięcie zmarszczki nosowo-wargowej <span class="font-bold text-[#D4AF37]">w 100%</span></p></li>
+                <li class="flex items-start gap-3"><span class="text-gold text-[#D4AF37]">✨</span> <p>Redukcja lwiej zmarszczki na czole</p></li>
+                <li class="flex items-start gap-3"><span class="text-gold text-[#D4AF37]">✨</span> <p><span class="font-bold">4x krotnie</span> zwiększa produkcję kolagenu</p></li>
+                <li class="flex items-start gap-3"><span class="text-gold text-[#D4AF37]">✨</span> <p>Poprawa owalu twarzy <span class="font-bold">"EFEKT GLOW"</span></p></li>
+            </ul>
+            
+            <p class="text-xl font-bold text-center mb-8 uppercase tracking-widest text-gold text-[#D4AF37]">Odmładza o 5-10 lat!</p>
+
+            <a href="#kontakt" class="cta-button block text-center gold-gradient-bg text-white font-bold py-4 rounded-full text-lg uppercase shadow-lg">
+                Odbierz promocję
+            </a>
+        </div>
+    </section>
+
+    <!-- KROK PO KROKU -->
+    <section class="py-16 px-6 bg-white">
+        <h2 class="text-2xl font-bold mb-10 text-center uppercase tracking-tight text-gray-900">Mioplastyka Twarzy® "Krok Po Kroku"</h2>
+        
+        <div class="space-y-12 mb-12">
+            <div class="relative pl-12 border-l border-gold border-[#D4AF37]">
+                <div class="absolute -left-4 top-0 w-8 h-8 gold-gradient-bg text-white flex items-center justify-center rounded-full font-bold">1</div>
+                <h3 class="font-bold mb-2 uppercase text-gray-800">KROK 1 - ZAPIS</h3>
+                <p class="text-sm text-gray-600">Zapisujesz się na zabieg poprzez formularz na tej stronie. Recepcjonistka oddzwoni w celu potwierdzenia terminu.</p>
+            </div>
+            <div class="relative pl-12 border-l border-gold border-[#D4AF37]">
+                <div class="absolute -left-4 top-0 w-8 h-8 gold-gradient-bg text-white flex items-center justify-center rounded-full font-bold">2</div>
+                <h3 class="font-bold mb-2 uppercase text-gray-800">KROK 2 - KONSULTACJA</h3>
+                <p class="text-sm text-gray-600">Wizytujesz salon Krok Ku Zdrowiu – specjalista przeprowadza wywiad odnośnie celów i efektów.</p>
+            </div>
+            <div class="relative pl-12 border-l border-gold border-[#D4AF37]">
+                <div class="absolute -left-4 top-0 w-8 h-8 gold-gradient-bg text-white flex items-center justify-center rounded-full font-bold">3</div>
+                <h3 class="font-bold mb-2 uppercase text-gray-800">KROK 3 - ZABIEG</h3>
+                <p class="text-sm text-gray-600">Ola Poprawska wykonuje zabieg (ok. 1h 30m) – głęboka praca nad strukturą Twojej twarzy.</p>
+            </div>
+        </div>
+
+        <div class="max-w-md mx-auto">
+            <a href="#kontakt" class="cta-button block text-center gold-gradient-bg text-white font-bold py-4 rounded-full text-lg uppercase shadow-xl">
+                Zapisz się na listę teraz !
+            </a>
+        </div>
+    </section>
+
+    <!-- MARZENIE I MISJA -->
+    <section class="py-0 bg-white">
+        <div class="w-full">
+            <img src="https://i.imgur.com/51iDdlv.png" alt="Ola Poprawska - Sukces" class="w-full h-auto object-cover shadow-inner">
+        </div>
+        <div class="py-16 px-6 max-w-2xl mx-auto">
+            <div class="relative p-10 glass-card rounded-[3rem] border-t-8 border-gold border-[#D4AF37] -mt-12 z-10 shadow-2xl">
+                <p class="text-xl text-gray-800 leading-relaxed font-medium italic text-center">
+                    "Jedno z moich najskrytszych marzeń się spełniło, a ten tytuł dał mi jeszcze więcej motywacji i otworzył kolejną ścieżkę w rozwoju specjalizacji manualnych terapii twarzy. Dziękuję że mogę być w tym miejscu i wspierać Kobiety z Rzeszowa i okolic w odkrywaniu ich naturalnego piękna 💗"
+                </p>
+                <p class="text-center mt-6 font-bold text-gray-500 uppercase tracking-widest text-xs">Wicemistrzyni Polski 2026</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- OFERTA -->
+    <section class="py-16 px-6 gold-gradient-bg">
+        <div class="glass-card p-8 rounded-[40px] text-center max-w-md mx-auto relative overflow-hidden">
+            <!-- Counter Widget -->
+            <div class="flex items-center justify-center gap-2 mb-6 bg-white/50 py-2 px-4 rounded-full w-fit mx-auto shadow-sm">
+                <div class="relative flex h-3 w-3">
+                    <span class="pulse-dot absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-3 w-3 bg-green-600"></span>
+                </div>
+                <p class="text-[11px] font-bold text-gray-800 uppercase tracking-tight">
+                    👁️ 24 osoby przeglądają właśnie teraz tą ofertę
+                </p>
+            </div>
+
+            <h2 class="text-sm font-bold uppercase tracking-widest text-gray-800 mb-2">Tylko w Rzeszowie !</h2>
+            <h3 class="text-2xl font-bold text-gray-900 mb-1 uppercase">MIOPLASTYKA TWARZY®</h3>
+            <p class="text-xs font-bold text-gray-700 mb-6 uppercase tracking-wider">U wicemistrzyni Polski 2026</p>
+            
+            <div class="flex flex-col items-center gap-1 mb-6">
+                <span class="text-red-600 line-through text-2xl font-bold">400 zł</span>
+                <span class="text-5xl font-bold text-green-700">280 zł</span>
+                <p class="text-[10px] text-gray-600 mt-1 uppercase font-medium">Najniższa cena w ciągu ostatnich 30 dni</p>
+            </div>
+
+            <div class="bg-yellow-100/80 py-2 px-4 rounded-xl mb-6 inline-block">
+                <p class="text-xs font-bold text-gray-900 uppercase">
+                    Promocja do końca tygodnia lub wyczerpania wszystkich miejsc.
+                </p>
+            </div>
+
+            <a href="#kontakt" class="block w-full bg-slate-900 text-white font-bold py-5 rounded-full text-lg uppercase mb-4 shadow-xl tracking-tight">
+                Zarezerwuj miejsce na liście
+            </a>
+            
+            <p class="font-bold text-red-700 uppercase text-sm mb-2">OSZCZĘDZASZ 120 ZŁ (45% RABAT)</p>
+        </div>
+    </section>
+
+    <!-- KONTAKT FORM -->
+    <section id="kontakt" class="py-20 px-6 bg-slate-50 text-center">
+        <div class="max-w-md mx-auto">
+            <h2 class="text-2xl font-bold mb-4 uppercase tracking-tight text-gray-900">Chcesz ODMŁODZIĆ SWOJĄ TWARZ?</h2>
+            <p class="text-sm text-gray-600 mb-8">Wypełnij poniższy krótki formularz podając swoje dane.</p>
+
+            <form id="leadForm" class="space-y-4 text-left">
+                <input type="text" id="name" placeholder="Imię" required class="form-input w-full p-4 rounded-2xl glass-card border-gray-200">
+                <input type="tel" id="phone" placeholder="Aktualny numer telefonu" required class="form-input w-full p-4 rounded-2xl glass-card border-gray-200">
+                <input type="email" id="email" placeholder="Aktualny e-mail" required class="form-input w-full p-4 rounded-2xl glass-card border-gray-200">
+                
+                <div class="flex items-start gap-3 py-2">
+                    <input type="checkbox" id="privacy" required class="mt-1 w-5 h-5 accent-gold text-[#D4AF37]">
+                    <label for="privacy" class="text-[10px] text-gray-500">
+                        Zgadzam się na przetwarzanie moich danych zgodnie z <a href="https://docs.google.com/document/d/1DrH_q7jHOmiBzJt3adUUH_TXojJNXcJprZy5TSoZdc8/edit?usp=sharing" target="_blank" class="underline text-gold text-[#D4AF37]">polityką prywatności</a>
+                    </label>
+                </div>
+
+                <button type="submit" class="cta-button w-full gold-gradient-bg text-white font-bold py-5 rounded-2xl text-xl shadow-lg uppercase tracking-tight">
+                    Zapisz mnie na listę
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- SUCCESS MODAL -->
+    <div id="successModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-6 bg-black/60 backdrop-blur-sm">
+        <div class="glass-card w-full max-w-sm p-8 rounded-[40px] text-center animate-bounce-in">
+            <div class="w-16 h-16 bg-green-500 text-white flex items-center justify-center rounded-full mx-auto mb-4 text-3xl">✓</div>
+            <h3 class="text-2xl font-bold mb-4 uppercase">Dziękuję Gotowe!</h3>
+            <p class="text-sm text-gray-700 mb-6 leading-relaxed">
+                Skontaktuję się z Tobą w ciągu 24h od wysłania zgłoszenia. Proszę zapisz mój numer tel. <br>
+                <span class="font-bold text-lg">600 314 220</span><br>
+                Do usłyszenia Anna :)
+            </p>
+            <button onclick="closeModal()" class="w-full bg-slate-900 text-white py-3 rounded-full font-bold uppercase">Zamknij</button>
+        </div>
+    </div>
+
+    <!-- SEKSCJA FAQ -->
+    <section class="py-20 px-6 bg-white border-t border-gray-100">
+        <h2 class="text-2xl font-bold mb-10 text-center uppercase tracking-tight text-gray-900">Sekcja FAQ</h2>
+        <div class="space-y-4 max-w-md mx-auto">
+            
+            <div class="border-b border-gray-100">
+                <button class="accordion-btn w-full text-left py-4 flex justify-between items-center font-bold text-sm uppercase gap-4">
+                    <span>1. DLACZEGO ZABIEG Stymulatorem Tkankowym JEST TAK WYJĄTKOWY ?</span>
+                    <span class="gold text-[#D4AF37] font-bold">+</span>
+                </button>
+                <div class="accordion-content text-xs text-gray-600 pb-4">
+                    Stymulator Tkankowy nadaje się do każdego rodzaju skóry, w tym wrażliwej. Sprawdzi się w kondycjonowaniu cery odwodnionej, niedotlenionej, także dojrzałej, z objawami starzenia. Ponadto może stanowić rozwiązanie first treatment, idealne dla osób 20-, 30- letnich świadomie podchodzących do pielęnej skóry.
+                    <br><br>
+                    Preparat Stymulator Tkankowy można zastosować do poprawy skóry twarzy, szyi i dekoltu, a także rąk.
+                </div>
+            </div>
+
+            <div class="border-b border-gray-100">
+                <button class="accordion-btn w-full text-left py-4 flex justify-between items-center font-bold text-sm uppercase gap-4">
+                    <span>2. CZY ZABIEG Stymulatorem Tkankowym JEST BOLESNY ?</span>
+                    <span class="gold text-[#D4AF37] font-bold">+</span>
+                </button>
+                <div class="accordion-content text-xs text-gray-600 pb-4">
+                    Nie, zabieg jest bezbolesny. W jego trakcie możesz odczuwać jedynie delikatne mrowienie lub szczypanie.
+                </div>
+            </div>
+
+            <div class="border-b border-gray-100">
+                <button class="accordion-btn w-full text-left py-4 flex justify-between items-center font-bold text-sm uppercase gap-4">
+                    <span>3. CO MOGĘ ROBIĆ PO ZABIEGU ?</span>
+                    <span class="gold text-[#D4AF37] font-bold">+</span>
+                </button>
+                <div class="accordion-content text-xs text-gray-600 pb-4">
+                    Po zabiegu bez przeszkód możesz wrócić do aktywności zawodowej. Na 7 dni zrezygnuj z sauny i basenu. Ćwiczenia fizyczne możesz bezpiecznie wykonywać następnego dnia po zabiegu.
+                </div>
+            </div>
+
+            <div class="border-b border-gray-100">
+                <button class="accordion-btn w-full text-left py-4 flex justify-between items-center font-bold text-sm uppercase gap-4">
+                    <span>4. KIEDY BĘDĄ PIERWSZE EFEKTY?</span>
+                    <span class="gold text-[#D4AF37] font-bold">+</span>
+                </button>
+                <div class="accordion-content text-xs text-gray-600 pb-4">
+                    Pierwszy efekt widoczny jest bezpośrednio po zabiegu. Na efekt ostateczny trzeba poczekać ok. 3-6 tygodni od zabiegu.
+                </div>
+            </div>
+
+            <div class="border-b border-gray-100">
+                <button class="accordion-btn w-full text-left py-4 flex justify-between items-center font-bold text-sm uppercase gap-4">
+                    <span>5. Jak długo utrzymują się efekty?</span>
+                    <span class="gold text-[#D4AF37] font-bold">+</span>
+                </button>
+                <div class="accordion-content text-xs text-gray-600 pb-4">
+                    Efekt utrzymuje się od 1 do 1,5 roku.
+                </div>
+            </div>
+
+            <div class="border-b border-gray-100">
+                <button class="accordion-btn w-full text-left py-4 flex justify-between items-center font-bold text-sm uppercase gap-4">
+                    <span>6. JAKIE SĄ PRZECIWWSKAZANIA?</span>
+                    <span class="gold text-[#D4AF37] font-bold">+</span>
+                </button>
+                <div class="accordion-content text-xs text-gray-600 pb-4">
+                    Ciąża i laktacja, choroby autoimmunologiczne, schorzenia ogólnoustrojowe, niewyrównane choroby nowotworowe, infekcje skóry, aktywna opryszczka.
+                </div>
+            </div>
+
+            <div class="border-b border-gray-100">
+                <button class="accordion-btn w-full text-left py-4 flex justify-between items-center font-bold text-sm uppercase gap-4">
+                    <span>7. KTO WYKONUJE ZABIEG ?</span>
+                    <span class="gold text-[#D4AF37] font-bold">+</span>
+                </button>
+                <div class="accordion-content text-xs text-gray-600 pb-4">
+                    Zabieg wykonywany jest przez doświadczonego specjalistę z wykształceniem pielęgniarskim Panią mgr Annę Poprawską.
+                </div>
+            </div>
+
+            <div class="border-b border-gray-100">
+                <button class="accordion-btn w-full text-left py-4 flex justify-between items-center font-bold text-sm uppercase gap-4">
+                    <span>8. CZY MOŻNA PŁACIĆ KARTĄ?</span>
+                    <span class="gold text-[#D4AF37] font-bold">+</span>
+                </button>
+                <div class="accordion-content text-xs text-gray-600 pb-4">
+                    Tak, w gabinecie można płacić kartą.
+                </div>
+            </div>
+
+            <div class="border-b border-gray-100">
+                <button class="accordion-btn w-full text-left py-4 flex justify-between items-center font-bold text-sm uppercase gap-4">
+                    <span>9. CZY PRZY GABINECIE ZNAJDUJĘ SIĘ PARKING?</span>
+                    <span class="gold text-[#D4AF37] font-bold">+</span>
+                </button>
+                <div class="accordion-content text-xs text-gray-600 pb-4">
+                    Tak, przy gabinecie znajduje się parking.
+                </div>
+            </div>
+
+        </div>
+
+        <div class="mt-16 text-center">
+            <h2 class="text-2xl font-bold text-gray-900 uppercase tracking-wide">Specjalistka Manualnych Terapii Twarzy</h2>
+            <p class="text-xl font-medium text-gold text-[#D4AF37] mt-1">Ola Poprawska</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-12 px-6 bg-slate-900 text-white text-center">
+        <p class="font-bold mb-2 uppercase">Krok Ku Zdrowiu</p>
+        <p class="text-[10px] text-gray-400 mb-6">ul. Jana Kochanowskiego 18, 35-208 Rzeszów</p>
+        
+        <div class="flex flex-col gap-4 mb-8 text-xs">
+            <a href="tel:+48533339429" class="text-gold text-[#D4AF37] font-bold">+48 533 339 429</a>
+            <a href="mailto:krokkuzdrowiu@gmail.com" class="text-gold text-[#D4AF37] font-bold">krokkuzdrowiu@gmail.com</a>
+        </div>
+
+        <div class="flex justify-center gap-8 mb-8">
+            <a href="https://www.facebook.com/krokkuzdrowiu" class="opacity-70 hover:opacity-100 transition-opacity uppercase text-xs font-bold">FB</a>
+            <a href="https://www.instagram.com/krok.ku.zdrowiu" class="opacity-70 hover:opacity-100 transition-opacity uppercase text-xs font-bold">IG</a>
+            <a href="#" class="opacity-70 hover:opacity-100 transition-opacity uppercase text-xs font-bold">Booksy</a>
+        </div>
+        <p class="text-[8px] text-gray-500 uppercase tracking-widest">© 2026 Krok Ku Zdrowiu Rzeszów</p>
+    </footer>
+
+    <script>
+        // Confetti Logic
+        function triggerConfetti() {
+            const container = document.getElementById('confetti');
+            const colors = ['#D4AF37', '#F4E0A1', '#ffffff', '#FFD700'];
+            
+            const confettiTimer = setInterval(() => {
+                const piece = document.createElement('div');
+                piece.className = 'confetti-piece';
+                
+                const size = Math.random() * 8 + 6 + 'px';
+                piece.style.width = size;
+                piece.style.height = size;
+                piece.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                piece.style.left = Math.random() * 100 + 'vw';
+                piece.style.animationDuration = Math.random() * 3 + 2 + 's';
+                piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+                
+                container.appendChild(piece);
+
+                // Individual piece cleanup
+                setTimeout(() => piece.remove(), 5000);
+            }, 100);
+
+            // Total active generation time: 5 seconds
+            setTimeout(() => {
+                clearInterval(confettiTimer);
+                // Complete cleanup of the container after last pieces fall
+                setTimeout(() => {
+                    if (container) container.remove();
+                }, 5000);
+            }, 5000);
+        }
+
+        // Start confetti on page load
+        window.addEventListener('DOMContentLoaded', triggerConfetti);
+
+        // FAQ Accordion
+        document.querySelectorAll('.accordion-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                const isOpen = content.style.maxHeight;
+                
+                document.querySelectorAll('.accordion-content').forEach(c => {
+                    c.style.maxHeight = null;
+                });
+                document.querySelectorAll('.accordion-btn span:last-child').forEach(s => {
+                    s.innerText = '+';
+                });
+                
+                if (!isOpen) {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                    button.querySelector('span:last-child').innerText = '-';
+                }
+            });
+        });
+
+        // Form Logic
+        document.getElementById('leadForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const btn = this.querySelector('button');
+            btn.disabled = true;
+            btn.innerText = 'Przetwarzanie...';
+
+            const data = {
+                date: new Date().toLocaleDateString('pl-PL'),
+                name: document.getElementById('name').value,
+                tel: document.getElementById('phone').value,
+                email: document.getElementById('email').value
+            };
+
+            try {
+                const response = await fetch('https://hook.eu1.make.com/lq8o6c6jfko4ctiqyiggy9v915zy9rv2', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+
+                if (response.ok) {
+                    document.getElementById('successModal').style.display = 'flex';
+                    fbq('track', 'Lead');
+                    this.reset();
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            } finally {
+                btn.disabled = false;
+                btn.innerText = 'Zapisz mnie na listę';
+            }
+        });
+
+        function closeModal() {
+            document.getElementById('successModal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
